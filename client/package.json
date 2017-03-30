@@ -1,0 +1,37 @@
+{
+  "name": "grok-client",
+  "version": "0.1.0",
+  "description": "A client-side application for statistical data analysis",
+  "repository": "https://github.com/rganchev/grok.git",
+  "author": "Radan Ganchev",
+  "license": "MIT",
+  "neutrino": {
+    "use": [
+      "neutrino-preset-react"
+    ]
+  },
+  "scripts": {
+    "start": "neutrino start",
+    "build": "yarn lint && neutrino build",
+    "lint": "eslint --ext .js src"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "neutrino": "^5.0.0",
+    "neutrino-middleware-eslint": "^5.0.2",
+    "neutrino-preset-react": "^5.0.0"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router-dom": "^4.0.0",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.0",
+    "redux-thunk": "^2.2.0"
+  }
+}

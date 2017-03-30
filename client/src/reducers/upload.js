@@ -7,7 +7,7 @@ import {
 } from '../constants/upload';
 
 const items = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case UPLOAD_SUCCESS:
       return [...state, action.data];
 
@@ -17,7 +17,7 @@ const items = (state = [], action) => {
 };
 
 const isFetching = (state = false, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case UPLOAD_REQUEST:
       return true;
 
@@ -33,4 +33,4 @@ const isFetching = (state = false, action) => {
 export default combineReducers({
   items,
   isFetching,
-})
+});
