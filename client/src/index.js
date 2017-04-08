@@ -1,13 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import configureStore from './store/configure_store';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apollo';
 import App from './containers/app';
+import rootReducer from './reducers';
+import { SERVER_URL } from './constants/server';
 
-const store = configureStore();
+const networkInterface = createNetworkInterface({
+  uri: `${SERVER_URL}/graphql`,
+});
+
+const client = new ApolloClient({ networkInterface });
+
+const store = createStore(
+  combineReducers({
+    ...rootReducer,
+    apollo: client.reducer(),
+  }),
+  {}, // initial state
+  compose(
+    applyMiddleware(client.middleware()),
+    applyMiddleware(thunkMiddleware),
+    applyMiddleware(createLogger())),
+);
 
 ReactDOM.render(
-  <Provider store={store}>
+  <ApolloProvider store={store} client={client}>
     <App />
-  </Provider>,
+  </ApolloProvider>,
   document.getElementById('root'));

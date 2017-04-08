@@ -1,0 +1,20 @@
+Grok workflow
+
+ 1. upload CSV
+  + create new database for each data set
+  + generate dataset ID
+
+ 2. dataset transformations
+  - rename column
+  - delete column
+  - add new column as function (?) of the rest
+  - column types?
+
+ 3. simple column statistics (summary)
+  - mean
+  - quantiles
+  - variation/sd
+
+ 4. refer to query result by name
+
+ 5. linear regression & other methods
