@@ -1,0 +1,75 @@
+.app-header.navbar-default {
+  background-color: #000000;
+  border-color: #333333;
+}
+.app-header.navbar-default .navbar-brand {
+  color: #eeeeee;
+}
+.app-header.navbar-default .logo {
+  margin-top: 7px;
+}
+.app-header.navbar-default .logo img {
+  max-height: 35px;
+}
+.app-header.navbar-default .navbar-brand:hover,
+.app-header.navbar-default .navbar-brand:focus {
+  color: #aaaaaa;
+}
+.app-header.navbar-default .navbar-text {
+  color: #eeeeee;
+}
+.app-header.navbar-default .navbar-nav > li > a {
+  color: #eeeeee;
+}
+.app-header.navbar-default .navbar-nav > li > a:hover,
+.app-header.navbar-default .navbar-nav > li > a:focus {
+  color: #aaaaaa;
+}
+.app-header.navbar-default .navbar-nav > .active > a,
+.app-header.navbar-default .navbar-nav > .active > a:hover,
+.app-header.navbar-default .navbar-nav > .active > a:focus {
+  color: #aaaaaa;
+  background-color: #333333;
+}
+.app-header.navbar-default .navbar-nav > .open > a,
+.app-header.navbar-default .navbar-nav > .open > a:hover,
+.app-header.navbar-default .navbar-nav > .open > a:focus {
+  color: #aaaaaa;
+  background-color: #333333;
+}
+.app-header.navbar-default .navbar-toggle {
+  border-color: #333333;
+}
+.app-header.navbar-default .navbar-toggle:hover,
+.app-header.navbar-default .navbar-toggle:focus {
+  background-color: #333333;
+}
+.app-header.navbar-default .navbar-toggle .icon-bar {
+  background-color: #eeeeee;
+}
+.app-header.navbar-default .navbar-collapse,
+.app-header.navbar-default .navbar-form {
+  border-color: #eeeeee;
+}
+.app-header.navbar-default .navbar-link {
+  color: #eeeeee;
+}
+.app-header.navbar-default .navbar-link:hover {
+  color: #aaaaaa;
+}
+
+@media (max-width: 767px) {
+  .app-header.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #eeeeee;
+  }
+  .app-header.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .app-header.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #aaaaaa;
+  }
+  .app-header.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .app-header.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .app-header.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #aaaaaa;
+    background-color: #333333;
+  }
+}

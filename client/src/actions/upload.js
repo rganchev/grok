@@ -1,14 +1,7 @@
-import {
-  UPLOAD_REQUEST,
-  UPLOAD_SUCCESS,
-} from '../constants/upload';
-
-import {
-  SERVER_URL,
-} from '../constants/server';
+import { SERVER_URL } from '../constants/server';
 
 export default file => (dispatch) => {
-  dispatch({ type: UPLOAD_REQUEST });
+  dispatch({ type: 'UPLOAD_REQUEST' });
 
   const formData = new FormData();
   formData.append('file', file, file.name);
@@ -19,6 +12,6 @@ export default file => (dispatch) => {
     mode: 'cors',
   })
     .then(() => {
-      dispatch({ type: UPLOAD_SUCCESS });
+      dispatch({ type: 'UPLOAD_SUCCESS' });
     });
 };

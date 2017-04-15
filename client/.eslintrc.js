@@ -17,7 +17,8 @@ api.use(eslint, {
     envs: ['browser'],
     rules: {
       'jsx-quotes': ['error', 'prefer-single'],
-      'react/jsx-filename-extension': 'off'
+      'react/jsx-filename-extension': 'off',
+      'jsx-a11y/href-no-hash': 'off'
     }
   }
 });

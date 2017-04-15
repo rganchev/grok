@@ -1,0 +1,8 @@
+.auth-form {
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.auth-form .alert {
+  margin-top: 1.5rem;
+}

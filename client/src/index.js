@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apollo';
-import App from './containers/app';
-import rootReducer from './reducers';
+import reducers from './reducers';
 import { SERVER_URL } from './constants/server';
+import routes from './routes';
 
 const networkInterface = createNetworkInterface({
   uri: `${SERVER_URL}/graphql`,
@@ -16,7 +17,7 @@ const client = new ApolloClient({ networkInterface });
 
 const store = createStore(
   combineReducers({
-    ...rootReducer,
+    ...reducers,
     apollo: client.reducer(),
   }),
   {}, // initial state
@@ -28,6 +29,6 @@ const store = createStore(
 
 ReactDOM.render(
   <ApolloProvider store={store} client={client}>
-    <App />
+    <Router>{routes}</Router>
   </ApolloProvider>,
   document.getElementById('root'));
