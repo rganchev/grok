@@ -2,7 +2,7 @@ import inspect
 import re
 import os
 import importlib.util
-from src import log
+from grok import log
 
 
 class GrokPlugin(object):

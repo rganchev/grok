@@ -1,8 +1,8 @@
 from graphene import resolve_only_args, Field, List, String
-from src.db.mongo import DB
-from src.db.util import generate_ds_name
-from src.graphql.types.dataset import Dataset
-from src.graphql.grok_plugin import GrokPlugin
+from grok.db.mongo import DB
+from grok.db.util import generate_ds_name
+from grok.graphql.types.dataset import Dataset
+from grok.graphql.grok_plugin import GrokPlugin
 
 
 @resolve_only_args

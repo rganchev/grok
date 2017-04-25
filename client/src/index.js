@@ -11,6 +11,9 @@ import routes from './routes';
 
 const networkInterface = createNetworkInterface({
   uri: `${SERVER_URL}/graphql`,
+  opts: {
+    credentials: 'include',
+  },
 });
 
 const client = new ApolloClient({ networkInterface });

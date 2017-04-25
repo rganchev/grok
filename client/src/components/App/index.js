@@ -17,8 +17,13 @@ class App extends React.Component {
 
     return (
       <div>
-        <AppHeader actions={this.props.actions} isLoggedIn={this.props.isLoggedIn} />
-        {this.props.children}
+        <AppHeader
+          actions={this.props.actions}
+          username={this.props.username}
+        />
+        <div className='container'>
+          {this.props.children}
+        </div>
       </div>
     );
   }
@@ -30,8 +35,12 @@ App.propTypes = {
     logout: PropTypes.func.isRequired,
   }).isRequired,
   sessionInitialized: PropTypes.bool.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
+  username: PropTypes.string,
+};
+
+App.defaultProps = {
+  username: null,
 };
 
 export default App;

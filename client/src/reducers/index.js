@@ -1,7 +1,7 @@
 import auth from './auth';
-import upload from './upload';
+import datasets from './datasets';
 
 export default {
   auth,
-  upload,
+  datasets,
 };

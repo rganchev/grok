@@ -19,7 +19,7 @@ const user = (state = null, action) => {
     case 'LOGIN_SUCCESS':
     case 'REGISTER_SUCCESS':
     case 'RENEW_SESSION_SUCCESS':
-      return action.user;
+      return action.data;
 
     case 'LOGIN_FAILURE':
     case 'LOGOUT_SUCCESS':

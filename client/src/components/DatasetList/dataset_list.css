@@ -1,0 +1,21 @@
+.datasets table tbody td,
+.datasets table tbody th {
+  vertical-align: middle;
+}
+
+.btn-grok,
+.btn-grok:hover,
+.btn-grok:active,
+.btn-grok:focus {
+  color: transparent;
+  width: 65px;
+  background-color: black;
+  background-image: url('../../assets/grok_btn.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.btn-grok:hover {
+  background-position: bottom;
+}

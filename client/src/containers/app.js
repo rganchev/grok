@@ -7,7 +7,7 @@ import App from '../components/App';
 function mapStateToProps(state) {
   return {
     sessionInitialized: state.auth.sessionInitialized,
-    isLoggedIn: !!state.auth.user,
+    username: state.auth.user && state.auth.user.name,
   };
 }
 

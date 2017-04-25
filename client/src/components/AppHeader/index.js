@@ -10,8 +10,11 @@ const AppHeader = props => (
           <img src='../../assets/grok_logo.png' alt='GROK' />
         </a>
       </div>
-      { props.isLoggedIn ?
+      { props.username ?
         <ul className='nav navbar-nav navbar-right'>
+          <li className='navbar-text'>
+            Hello, {props.username}!
+          </li>
           <li>
             <a href='#' className='navbar-link' onClick={props.actions.logout}>Sign out</a>
           </li>
@@ -26,7 +29,11 @@ AppHeader.propTypes = {
   actions: PropTypes.shape({
     logout: PropTypes.func.isRequired,
   }).isRequired,
-  isLoggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string,
+};
+
+AppHeader.defaultProps = {
+  username: 'Guest',
 };
 
 export default AppHeader;

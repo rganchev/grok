@@ -1,35 +1,11 @@
-import os
-import tempfile
 import bcrypt
-from flask import Flask, request, jsonify
-from flask_graphql import GraphQLView
-from flask_cors import CORS
+from flask import request, jsonify
 from flask_login import UserMixin, AnonymousUserMixin, LoginManager,\
     login_user, logout_user, login_required, current_user
 from bson.objectid import ObjectId
-from werkzeug.utils import secure_filename
-from src.db.mongo import DB
-from src.graphql.schema import schema
-from src.data.process import process_dataset
+from . import app
+from .db.mongo import DB
 
-UPLOAD_FOLDER = tempfile.gettempdir()
-ALLOWED_EXTENSIONS = set(['csv'])
-
-app = Flask(__name__)
-app.config.update(
-    UPLOAD_FOLDER=UPLOAD_FOLDER,
-    SECRET_KEY='f2c58f164b264229'
-)
-
-CORS(app, supports_credentials=True)
-
-app.add_url_rule(
-    '/graphql',
-    view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True)
-)
-
-
-# ########### Login ################# #
 
 class User(UserMixin):
     def __init__(self, db_user=None, **kwargs):
@@ -113,31 +89,3 @@ def logout():
 @app.route('/auth/me', methods=['GET'])
 def me():
     return jsonify(current_user.__dict__)
-
-
-# ############ End login ################ #
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
-@app.route('/upload', methods=['POST'])
-def upload_file():
-    if 'file' not in request.files:
-        return 'No file part', 400
-    file = request.files['file']
-    if file.filename == '':
-        return 'No file selected', 400
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(filepath)
-        return process_dataset(filepath)
-    else:
-        return 'Extension not allowed', 400
-
-
-if __name__ == '__main__':
-    app.run(debug=True, port=8080)

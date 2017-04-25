@@ -1,23 +1,23 @@
-import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import UploadForm from '../components/UploadForm';
-import uploadFile from '../actions/upload';
+import HomePage from '../components/HomePage';
+import { getDatasets, uploadDataset, deleteDataset } from '../actions/datasets';
 
-const HomePage = props => (
-  <UploadForm handleSubmit={props.actions.uploadFile} />
-);
-
-HomePage.propTypes = {
-  actions: PropTypes.shape({
-    uploadFile: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
   return {
-    actions: bindActionCreators({ uploadFile }, dispatch),
+    datasets: state.datasets.all,
+    isUploading: state.datasets.isUploading,
   };
 }
 
-export default connect(null, mapDispatchToProps)(HomePage);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({
+      getDatasets,
+      uploadDataset,
+      deleteDataset,
+    }, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

@@ -3,4 +3,5 @@ node_modules
 .DS_Store
 env/
 client/build
+*.egg-info
 !.gitkeep
