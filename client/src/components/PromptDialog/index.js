@@ -36,6 +36,7 @@ const PromptDialog = (props) => {
 PromptDialog.propTypes = {
   show: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
+  title: PropTypes.string,
   children: PropTypes.node,
   content: PropTypes.string,
   buttons: PropTypes.arrayOf(PropTypes.shape({
