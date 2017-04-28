@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './app_header.css';
 
 const AppHeader = props => (
   <div className='app-header navbar navbar-default'>
     <div className='container-fluid'>
       <div className='navbar-header'>
-        <a href='#' className='logo navbar-left'>
+        <Link to='/' className='logo navbar-left'>
           <img src='../../assets/grok_logo.png' alt='GROK' />
-        </a>
+        </Link>
       </div>
       { props.username ?
         <ul className='nav navbar-nav navbar-right'>

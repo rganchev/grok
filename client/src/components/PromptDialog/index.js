@@ -14,7 +14,8 @@ const PromptDialog = (props) => {
       </Modal.Body>
       <Modal.Footer>
         {
-          props.buttons.map((button) => {
+          props.buttons.map((button, i) => {
+            const key = button.text.replace(/\W/g, '') + i;
             let clickHandler = button.onClick;
             if (button.isAccept && onAccept) {
               clickHandler = onAccept;
@@ -22,7 +23,7 @@ const PromptDialog = (props) => {
               clickHandler = props.close;
             }
             return (
-              <Button bsStyle={button.style} onClick={clickHandler}>
+              <Button key={key} bsStyle={button.style} onClick={clickHandler}>
                 {button.text}
               </Button>
             );
@@ -42,7 +43,7 @@ PromptDialog.propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
     style: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     isAccept: PropTypes.bool,
     isCancel: PropTypes.bool,
   })),

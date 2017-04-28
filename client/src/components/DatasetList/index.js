@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './dataset_list.css';
 import PromptDialog from '../PromptDialog';
 
@@ -41,7 +42,7 @@ class DatasetList extends React.Component {
         <td>
           <div className='btn-toolbar'>
             <div className='btn-group'>
-              <button type='button' className='btn btn-grok'>X</button>
+              <Link to={`/grok/${ds.dsid}`} className='btn btn-grok'>X</Link>
             </div>
             <div className='btn-group'>
               <button type='button' className='btn btn-default' title='Edit'>

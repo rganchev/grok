@@ -7,11 +7,9 @@
   "license": "MIT",
   "neutrino": {
     "use": [
-      "neutrino-preset-react"
-    ],
-    "config": {
-      "devtool": "source-map"
-    }
+      "neutrino-preset-react",
+      "./neutrino-custom.js"
+    ]
   },
   "scripts": {
     "start": "neutrino start",
@@ -24,17 +22,18 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "neutrino": "^5.0.0",
-    "neutrino-middleware-eslint": "^5.0.2",
-    "neutrino-preset-react": "^5.0.0"
+    "neutrino": "^5.7.0",
+    "neutrino-middleware-eslint": "^5.7.0",
+    "neutrino-preset-react": "^5.7.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "prop-types": "^15.5.4",
-    "react": "^15.4.2",
+    "graphiql": "^0.10.1",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
     "react-apollo": "^1.0.0",
     "react-bootstrap": "^0.30.9",
-    "react-dom": "^15.4.2",
+    "react-dom": "^15.5.4",
     "react-redux": "^5.0.3",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
